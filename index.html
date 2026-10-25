@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FaceSwap AI</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  background: #100f20;
+  color: white;
+}
+main { max-width: 440px; margin: 25px auto; }
+h1 { color: #b9a0ff; }
+.card {
+  background: #211e38;
+  padding: 18px;
+  margin: 18px 0;
+  border-radius: 16px;
+}
+input { width: 100%; margin-top: 12px; }
+button {
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  border-radius: 10px;
+  background: #8b5cf6;
+  color: white;
+  font-size: 16px;
+}
+p { color: #c9c5dc; }
+</style>
+</head>
+<body>
+<main>
+<h1>✨ FaceSwap AI</h1>
+<p>Photo + Video = Face Swap</p>
+
+<div class="card">
+<h3>1. Choose Face Photo</h3>
+<input id="photo" type="file" accept="image/*">
+</div>
+
+<div class="card">
+<h3>2. Choose Target Video</h3>
+<input id="video" type="file" accept="video/*">
+</div>
+
+<button onclick="checkFiles()">Prepare Face Swap</button>
+<p id="status">Select both files to continue.</p>
+</main>
+
+<script>
+function checkFiles() {
+  const photo = document.getElementById("photo").files[0];
+  const video = document.getElementById("video").files[0];
+  const status = document.getElementById("status");
+
+  if (!photo || !video) {
+    status.textContent = "Please select both files.";
+    return;
+  }
+
+  status.textContent =
+    "Files selected! Connect an AI engine to process your video.";
+}
+</script>
+</body>
+</html>
